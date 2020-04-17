@@ -15,6 +15,9 @@ import BottomNavigationAction from "@material-ui/core/BottomNavigationAction";
 import AddCircleIcon from "@material-ui/icons/AddCircle";
 import {AdminWrapper} from 'components/Admin';
 import GolfCourseIcon from '@material-ui/icons/GolfCourse';
+import InfoIcon from '@material-ui/icons/Info';
+import IconButton from '@material-ui/core/IconButton';
+import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
 
 //스타일 시트
 const useStyles = makeStyles(theme => ({
@@ -143,6 +146,11 @@ export default function CousrseListModify({history}) {
               </ListItemIcon>
               <GolfCourseIcon className={classes.icon}/>
               <ListItemText id={labelId} primary={`${value}`} />
+              <ListItemSecondaryAction>
+                <IconButton edge="end" aria-label="info">
+                  <InfoIcon />
+                </IconButton>
+              </ListItemSecondaryAction>
             </ListItem>
           );
         })}

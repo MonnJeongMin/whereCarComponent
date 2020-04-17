@@ -159,7 +159,7 @@ function CarRegister({ form, error, result, AuthActions, UserActions, history })
           error && <AuthError>{error}</AuthError>
         }
         <AdminButton onClick={handleCarRegister}>등록하기</AdminButton>
-        <RightAlignedLink to="/admin/courses">이전</RightAlignedLink>
+        <RightAlignedLink to="/admin/cars">이전</RightAlignedLink>
     </AuthContent>
     </AdminWrapper>
   );

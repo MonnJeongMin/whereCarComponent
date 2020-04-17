@@ -16,6 +16,7 @@ import AddCircleIcon from "@material-ui/icons/AddCircle";
 import IconButton from '@material-ui/core/IconButton';
 import CommentIcon from '@material-ui/icons/Comment';
 import DriveEtaIcon from '@material-ui/icons/DriveEta';
+import InfoIcon from '@material-ui/icons/Info';
 import {AdminWrapper} from 'components/Admin';
 import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
 
@@ -203,7 +204,11 @@ export default function CarListModify({history}) {
                 <IconButton edge="end" aria-label="comments">
                   <CommentIcon />
                 </IconButton>
+                <IconButton edge="end" aria-label="info" onClick={ () => {history.push('/admin/cars/info')}}>
+                  <InfoIcon />
+                </IconButton>
               </ListItemSecondaryAction>
+
             </ListItem>
           );
         })}

@@ -8,6 +8,7 @@ import storage from 'lib/storage';
 import {isInt, isLength} from 'validator';
 import Axios from 'axios';
 import {AdminWrapper, AdminButton} from 'components/Admin';
+import { Button } from '@material-ui/core';
 
 
 function CourseRegister({ form, error, result, AuthActions, UserActions, history }) {
@@ -43,6 +44,7 @@ function CourseRegister({ form, error, result, AuthActions, UserActions, history
           error && <AuthError>{error}</AuthError>
         }
         <AdminButton>등록하기</AdminButton>
+        <RightAlignedLink to="/admin/courses">이전</RightAlignedLink>
     </AuthContent>
     </AdminWrapper>
   );

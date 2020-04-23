@@ -1,5 +1,5 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import { fade, makeStyles } from '@material-ui/core/styles';
 import List from '@material-ui/core/List';
 import { LogoWrapper } from 'components/List/Car';
 import { ListWrapper, BottomNav } from 'components/List';
@@ -7,9 +7,13 @@ import styled from 'styled-components';
 import ListItem from "@material-ui/core/ListItem";
 import ListItemSecondaryAction from "@material-ui/core/ListItemSecondaryAction";
 import ListItemText from "@material-ui/core/ListItemText";
-import ListItemAvatar from "@material-ui/core/ListItemAvatar";
-import Avatar from "@material-ui/core/Avatar";
 import Button from '@material-ui/core/Button';
+import StarIcon from '@material-ui/icons/Star';
+import StarBorderIcon from '@material-ui/icons/StarBorder';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Checkbox from '@material-ui/core/Checkbox';
+import { yellow } from '@material-ui/core/colors';
+import SearchInput from 'components/Search/SearchInput';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -30,7 +34,8 @@ const useStyles = makeStyles(theme => ({
   },
   Button: {
     margin: theme.spacing(0.5),
-  }
+  },
+
 }));
 
 // children 이 들어가는 곳
@@ -91,21 +96,18 @@ export default function SearchList() {
       <LogoWrapper title="Search List" >
       </LogoWrapper>
       <Contents>
+      <SearchInput />
       <List dense className={classes.root}>
       {GD.map(value => {
         const labelId = `transfer-list-all-item-${value}-label`;
         return (
           <ListItem key={value} button>
-            <ListItemAvatar>
-              <Avatar
-                alt={`Avatar n°${value + 1}`}
-                src={`/static/images/avatar/${value + 1}.jpg`}
-              />
-            </ListItemAvatar>
+            <FormControlLabel
+            control={<Checkbox icon={<StarBorderIcon />} checkedIcon={<StarIcon style={{ color: yellow[500] }} />} name="checkedH" />}
+            />
             <ListItemText id={labelId} primary={`${value.name}`} />
             <ListItemSecondaryAction>
               <Button className={classes.Button} variant="outlined">상세보기</Button>
-              <Button className={classes.Button} variant="outlined">즐겨찾기 추가</Button>
             </ListItemSecondaryAction>
           </ListItem>
         );

@@ -1,8 +1,8 @@
 import React from 'react';
-import { fade, makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import List from '@material-ui/core/List';
 import { LogoWrapper } from 'components/List/Car';
-import { ListWrapper, BottomNav } from 'components/List';
+import { ListWrapper } from 'components/List';
 import styled from 'styled-components';
 import ListItem from "@material-ui/core/ListItem";
 import ListItemSecondaryAction from "@material-ui/core/ListItemSecondaryAction";
@@ -86,7 +86,7 @@ const Groups = {
 ]
 }
 
-export default function SearchList() {
+export default function SearchList({history}) {
   const classes = useStyles();
   const GD = Groups.Group;
 
@@ -101,13 +101,15 @@ export default function SearchList() {
       {GD.map(value => {
         const labelId = `transfer-list-all-item-${value}-label`;
         return (
-          <ListItem key={value} button>
+          <ListItem key={value}>
             <FormControlLabel
             control={<Checkbox icon={<StarBorderIcon />} checkedIcon={<StarIcon style={{ color: yellow[500] }} />} name="checkedH" />}
             />
             <ListItemText id={labelId} primary={`${value.name}`} />
             <ListItemSecondaryAction>
               <Button className={classes.Button} variant="outlined">상세보기</Button>
+              {/* onClick={ (검색 인풋값) =>  {history.push('/Search/listinfo')} */}
+              {/* 위에 온클릭 이벤트를 추가해야함 */}
             </ListItemSecondaryAction>
           </ListItem>
         );

@@ -205,9 +205,6 @@ function FavoriteCarList2({children, driverList, SocketActions}) {
         {
           Mylist.Group.map(value => (
             <ExpansionPanel
-            expanded={expanded === value.name}
-            onChange={handleChange(value.name)}
-            key = "1"
             className = {childin === true ? checkchild() : none()} 
             >
             {/*child 값에 따라서 색상 변경*/}
